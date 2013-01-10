@@ -1,6 +1,12 @@
 all:
 	g++ -ggdb \
-	`pkg-config --cflags opencv` `pkg-config --libs opencv` \
+	`pkg-config --cflags --libs opencv` \
 	`gsl-config --cflags --libs` \
-	main.cc pf/*.c Map/*.c \
-	 my_HOG.cpp -lm -o main
+ 	main.cc \
+	-lm -o main
+
+clean:
+	rm main
+	rm -rf *.dSYM
+	rm *.o
+

@@ -18,7 +18,6 @@
 #include <locale.h>
 #include <iostream>
 #include <ctype.h>
-#include "my_HOG.h"
 #include "iostream"
 
 #define HYPS_UPDATE 1
@@ -188,12 +187,6 @@ int main(int argc,char **argv )
 	fprintf(resultsFile,"0 0.0 0.0 0.0 0.0\n");
 	frameNumber++;
 	
-	// create "maps"
-	Mat img(frameSize,CV_8UC1);
-	Mat imgCol(frameSize,CV_8UC3);
-	img.setTo(Scalar(255,255,255));
-	imgCol.setTo(Scalar(255,255,255));
-	imwrite("blank.pgm",img);
 	
 	
 	// init pf-------
@@ -279,8 +272,7 @@ int main(int argc,char **argv )
 		hog.setSVMDetector(model);			
 	}
 
-//    my_HOGDescriptor my_hog;
-//    my_hog.setSVMDetector(HOGDescriptor::getDefaultPeopleDetector());
+
 
     // skip frames at start
     Mat frame;
